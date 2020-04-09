@@ -1,0 +1,25 @@
+<div class="card card-body mb-3">
+    <form>  
+        <div class="card card-body mb-3">
+            <label>Book Title</label>
+            <input class="form-control" 
+            type="text"
+            [(ngModel)]="currentBook.title"
+            name="title"
+            placeholder="Add book"
+            #title>
+        </div>
+        <div class="card card-body mb-3">
+            <label>Description</label>
+            <input type="text" 
+            class="form-control" 
+            [(ngModel)]="currentBook.description"
+            name="description"
+            placeholder="Add short description"
+            #description>
+        </div>
+            <input type="hidden" [(ngModel)]="currentBook.id" name="id">
+            <button *ngIf="!isEdit" (click)="addBook(title.value, description.value)" class="btn btn-dark btn block">Add Book</button>
+            <button *ngIf="isEdit" (click)="updateBook()" class="btn btn-warning btn-block">Update Book</button>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<div>
+    
+<app-add-book 
+    (newBook)="onNewBook($event)" 
+    [isEdit]="isEdit" 
+    [currentBook]="currentBook" 
+    (updatedBook)="onUpdatedBook($event)">
+</app-add-book>
+<h1>Book List</h1>
+    <div class="card" *ngFor="let book of books">
+        <div class="card-body">
+            <h3> 
+                <a routerLink="/book/{{book.id}}">{{ book.title }}</a>   
+            </h3>
+            <p>{{ book.description }}</p>
+            <hr>
+            <button (click)="removeBook(book)"class="btn btn-danger">X</button> 
+            <button (click)="editBook(book)" class="btn btn-light">Update</button>
+        </div> 
+    </div>
+</div>
